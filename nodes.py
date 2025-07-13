@@ -33,7 +33,7 @@ class _Smooth_Step_Lora_Loader_Base(ABC):
             lora = comfy.utils.load_torch_file(lora_path, safe_load=True)
             self.loaded_lora = (lora_path, lora)
 
-            if strength_smooth_step > 0.0:
+            if strength_smooth_step != 0.0:
                 lora = self.smooth_step_lora(lora, strength_smooth_step, **kwargs)
             self.strength_smooth_step = strength_smooth_step
 
